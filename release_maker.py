@@ -10,7 +10,7 @@ def git(*args, cwd=None):
 def make_release():
     git("submodule", "update", "--init", "--remote", "release-descriptor")
     git("reset", "--hard", cwd="release-descriptor")
-    last_sha = git("rev-parse", "HEAD", cwd="release-descriptor")
+    last_sha = git("rev-parse", "HEAD")
     with open("release-descriptor/version") as f:
         a, _ = f.read().split()
     with open("release-descriptor/version", "w") as f:
