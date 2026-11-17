@@ -24,8 +24,9 @@ def make_release():
 
 def dev_build():
     with tempfile.TemporaryDirectory() as tmp:
-        git("clone", "https://github.com/leshikus/release-descriptor.git", tmp)
-        with open(f"{tmp}/version") as f:
+        git("clone", "https://github.com/leshikus/release-maker.git", tmp)
+        git("submodule", "update", "--init", "--remote", "release-descriptor", cwd=tmp)
+        with open(f"{tmp}/release-descriptor/version") as f:
             print(f"build in dev env version {f.read()}", end="")
 
 
