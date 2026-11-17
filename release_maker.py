@@ -21,13 +21,14 @@ def make_release():
     git("-c", "user.name=Alexei Fedotov", "-c", "user.email=alexei.fedotov@gmail.com",
         "commit", "-m", f"release {int(a) + 1}", cwd=SUBMODULE)
     git("push", "origin", "HEAD:master", cwd=SUBMODULE)
+    print(f"create release version {int(a) + 1} {last_sha}")
 
 
 def dev_build():
     with tempfile.TemporaryDirectory() as tmp:
         git("clone", URL, tmp)
         with open(f"{tmp}/version") as f:
-            print(f.read(), end="")
+            print(f"build in dev env version {f.read()}", end="")
 
 
 if __name__ == "__main__":
