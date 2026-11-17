@@ -1,0 +1,4 @@
+[submodule "release-descriptor"]
+	path = release-descriptor
+	url = https://github.com/leshikus/release-descriptor.git
+	branch = master
