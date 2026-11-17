@@ -33,4 +33,4 @@ if __name__ == "__main__":
     while True:
         make_release()
         dev_build()
-        time.sleep(60)
+        time.sleep(1)
